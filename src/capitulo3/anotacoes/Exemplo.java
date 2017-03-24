@@ -1,12 +1,15 @@
 package capitulo3.anotacoes;
 
 public class Exemplo {
-	@Metadado(0)
+	@Metadado
 	private String atributo1;
 	
-	@Metadado(value=1,tipo="OK")
+	@Metadado(String.class)
 	private String atributo2;
 	
-	@Metadado(value=2,tipo="ok")
+	@Metadado(value=String.class,tipo="ok")
 	private String atributo3;
+	
+	@Metadado(String.class,tipo="OK")
+	private String atributo4;
 }
