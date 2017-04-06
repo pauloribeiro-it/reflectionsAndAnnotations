@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
@@ -46,4 +47,19 @@ public class Historico implements MethodInterceptor {
 		retorno.append(nomeSetter.substring(4));
 		return retorno.toString();
 	}
+
+	public static <E> E guardar(E obj) {
+		try {
+			Historico proxy = new Historico(obj);
+			Enhancer e = new Enhancer();
+			e.setSuperclass(obj.getClass());
+			e.setInterfaces(new Class[] { RecuperadorHistorico.class });
+			e.setCallback(proxy);
+			return (E) e.create();
+		} catch (Throwable e) {
+			throw new Error(e.getMessage());
+		}
+	}
+
+	
 }
