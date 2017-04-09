@@ -4,7 +4,9 @@ public class Produto {
 	private String nome;
 	private String marca;
 	private Double preco;
-
+	private String descricao;
+	private String categoria;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -29,4 +31,20 @@ public class Produto {
 		this.preco = preco;
 	}
 
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+	
 }
